@@ -1,4 +1,4 @@
-# multi layer nn
+# single layer nn
 
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -7,18 +7,13 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 batchSz = 100
 
 # multi layered neural net (relu[img U + bU ]) V + bV
-U = tf.Variable(tf.random.normal([784, 784], stddev=.1))
-bU = tf.Variable(tf.random.normal([784], stddev=.1))
-V = tf.Variable(tf.random.normal([784, 10], stddev=.1))
-bV = tf.Variable(tf.random.normal([10], stddev=.1))
-
+W = tf.Variable(tf.random.normal([784, 10], stddev=.1))
+b = tf.Variable(tf.random.normal([10], stddev=.1))
 
 img = tf.compat.v1.placeholder(tf.float32, [batchSz, 784])
 ans = tf.compat.v1.placeholder(tf.float32, [batchSz, 10])
 
-L1Output = tf.matmul(img, U) + bU
-L1Output = tf.nn.relu(L1Output)
-prbs = tf.nn.softmax(tf.matmul(L1Output, V) + bV)
+prbs = tf.nn.softmax(tf.matmul(img, W) + b)
 xEnt = tf.reduce_mean(-tf.reduce_sum(ans * tf.math.log(prbs),
                                      reduction_indices=[1]))
 

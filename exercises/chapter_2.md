@@ -80,7 +80,7 @@ ans: <1, 1, 1, -1> * <.6, .2, .1, .1>^T = .8
 ---
 Suppose the input has shape [50, 10]. How many TF variables are created by the following:
 ```python
-    01 = layers.fully_connected(input, 20, tf.sigmoid) ?
+01 = layers.fully_connected(input, 20, tf.sigmoid) ?
 ```
 What will the standard deviation for the variables in the matrix created ?
 

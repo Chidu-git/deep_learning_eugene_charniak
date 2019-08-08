@@ -25,16 +25,16 @@ the loss ? Also compare gradient w_0_0 on the backward pass.
 
 ans:
 ```python
-    A =[ (0)*(.2) + (1)*(- .1), (0) * (- .3) + (1) * (.4) ] = [ - .1, .4 ]
-    sigmoid(A0) = (e^ (- .1) / [ e^(- .1) + e^(.4) ]) 
-    sigmoid(A1) = (e^ (.4) / [ e^(- .1) + e^(.4) ])
+A =[ (0)*(.2) + (1)*(- .1), (0) * (- .3) + (1) * (.4) ] = [ - .1, .4 ]
+sigmoid(A0) = (e^ (- .1) / [ e^(- .1) + e^(.4) ]) 
+sigmoid(A1) = (e^ (.4) / [ e^(- .1) + e^(.4) ])
     
-    A = [ .3775, .6224 ] 
+A = [ .3775, .6224 ] 
 
-    L(A1) = - log(.6224) # a = j so Pr(A(x)) = 1 - p_j
-    L(A0) = - log(.3375)  # a != j so Pr(A(x)) = - p_j
+L(A1) = - log(.6224) # a = j so Pr(A(x)) = 1 - p_j
+L(A0) = - log(.3375)  # a != j so Pr(A(x)) = - p_j
     
-    gradient_w00 = w_0_0 * partialX / partial L_j 
+gradient_w00 = w_0_0 * partialX / partial L_j 
                  = .2 * partialX / partial_L_0 = .2 * ( - .3375 ) 
                  = .2 * partialX / partial_L_1 = .2 * ( 1 - .6224)
 ```
@@ -45,14 +45,14 @@ Same question as 1.2 except the image is [0, 0].
 
 ans:
 ```python
-    A = [0, 0]
-    sigmoid(A0) = .5
-    sigmoid(A1) = .5
+A = [0, 0]
+sigmoid(A0) = .5
+sigmoid(A1) = .5
     
-    L(A0) = - log(.5)
-    L(A1) = - log(.5)
+L(A0) = - log(.5)
+L(A1) = - log(.5)
    
-    gradient_w00 = w_0_0 * partialX / partial L_j 
+gradient_w00 = w_0_0 * partialX / partial L_j 
                  = .2 * partialX / partial_L_0 = .2 * (- .5) 
                  = .2 * partialX / partial_L_1 = .2 * (- .5) 
 ```
@@ -108,5 +108,5 @@ with respect to b_i.
 
 ans: 
 ```python
-    partial_deriv_b_i = 2 (t - l(X*W_i + b_i)) * (1)
+partial_deriv_b_i = 2 (t - l(X*W_i + b_i)) * (1)
 ```

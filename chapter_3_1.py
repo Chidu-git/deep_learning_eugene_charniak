@@ -1,4 +1,4 @@
-# convolutional nn
+# multi layered convolutional nn
 
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -14,16 +14,9 @@ ans = tf.compat.v1.placeholder(tf.float32, [batchSz, 10])
 
 # turns image into 4d tensor
 image = tf.reshape(img, [100, 28, 28, 1])
-# creates parameters for the filters
-flts = tf.Variable(tf.truncated_normal([4, 4, 1, 16], stddev=.1))
-# create graph to do the convolution
-convOut = tf.nn.conv2d(image, flts, [1, 2, 2, 1], "SAME")
-bias = tf.Variable(tf.zeros([16]))
-convOut += bias
-convOut = tf.nn.relu(convOut)
+convOut = tf.contrib.layers.conv2d(image, 16, [4,4], 2, "SAME")
 
-flts2 = tf.Variable(tf.truncated_normal([2, 2, 16, 32], stddev=.1))
-convOut2 = tf.nn.conv2d(convOut, flts2, [1, 2, 2, 1], "SAME")
+convOut2 = tf.contrib.layers.conv2d(convOut, 32, [2,2], 2, "SAME")
 # back to one hundred 1d image vectors
 convOut2 = tf.reshape(convOut2, [100, 1568])
 W = tf.Variable(tf.random.normal([1568, 10], stddev=.1))

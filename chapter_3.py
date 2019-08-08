@@ -1,4 +1,4 @@
-# convolutional nn
+# multi layered convolutional nn
 
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data

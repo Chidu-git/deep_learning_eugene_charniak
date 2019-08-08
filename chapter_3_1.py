@@ -15,7 +15,6 @@ ans = tf.compat.v1.placeholder(tf.float32, [batchSz, 10])
 # turns image into 4d tensor
 image = tf.reshape(img, [100, 28, 28, 1])
 convOut = tf.contrib.layers.conv2d(image, 16, [4,4], 2, "SAME")
-
 convOut2 = tf.contrib.layers.conv2d(convOut, 32, [2,2], 2, "SAME")
 # back to one hundred 1d image vectors
 convOut2 = tf.reshape(convOut2, [100, 1568])

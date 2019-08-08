@@ -60,8 +60,8 @@ output = 14 * 14 and 8 channels
 Explain what the following code does differently from the almost identical code at the beginnning
 of Section 3.4.2:
 ```python
-    convOut = tf.nn.conv2d(image, flts, [1,1,1,1], "SAME")
-    convOut = tf.nn.maxpool(convOut, [1,2,2,1], [1,1,1,1], "SAME"). 
+convOut = tf.nn.conv2d(image, flts, [1,1,1,1], "SAME")
+convOut = tf.nn.maxpool(convOut, [1,2,2,1], [1,1,1,1], "SAME"). 
 ```
 In particular, for an arbitrary values of image and flts, does convOut have same shape, in both cases ?
 Does it necessarily have the same values ? Is one set of values a proper subset of the other ? In each
@@ -83,7 +83,7 @@ ans: Because convolutional filters reduce the size of an image, this can become 
 ---
 (a) How many variables are created when we execute the following layers command ?
 ```python
-    layers.conv2d(image, 10, [2, 4], 2, "SAME", use_bias=False) 
+layers.conv2d(image, 10, [2, 4], 2, "SAME", use_bias=False) 
 ```
 Assume the image has shape [100, 8, 8, 3]. Which of these shape values are irrelevant to the answer ? (b) How
 many are if use_bias is set to True (the default) ?

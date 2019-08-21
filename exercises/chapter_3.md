@@ -1,3 +1,5 @@
+**convolutional neural networks**
+
 chapter 3 exercises
 -------------------
 3.1
